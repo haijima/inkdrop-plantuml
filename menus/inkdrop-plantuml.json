@@ -1,26 +1,14 @@
 {
   "context-menu": {
-    ".CodeMirror": [
+    "pre .inkdrop-plantuml": [
       {
-        "label": "Toggle inkdrop-plantuml",
-        "command": "inkdrop-plantuml:toggle"
+        "label": "Save as Image",
+        "command": "inkdrop-plantuml:save-as-image"
+      },
+      {
+        "label": "Save as SVG",
+        "command": "inkdrop-plantuml:save-as-svg"
       }
     ]
-  },
-  "menu": [
-    {
-      "label": "Plugins",
-      "submenu": [
-        {
-          "label": "inkdrop-plantuml",
-          "submenu": [
-            {
-              "label": "Toggle",
-              "command": "inkdrop-plantuml:toggle"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  }
 }
