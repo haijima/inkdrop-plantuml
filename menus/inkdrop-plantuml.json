@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    ".CodeMirror": [
+      {
+        "label": "Toggle inkdrop-plantuml",
+        "command": "inkdrop-plantuml:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Plugins",
+      "submenu": [
+        {
+          "label": "inkdrop-plantuml",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "inkdrop-plantuml:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
