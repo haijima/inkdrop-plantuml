@@ -5,8 +5,6 @@ import { React } from 'inkdrop'
 import { remote } from 'electron'
 import plantuml from 'node-plantuml'
 
-const { dialog } = remote
-
 export default class Diagram extends React.Component {
   constructor () {
     super()
@@ -33,18 +31,15 @@ export default class Diagram extends React.Component {
 
   renderDiagram () {
     const code = this.props.children[0]
-    if (this.codeCache === code) {
-      return
-    }
+    if (this.codeCache === code) return
     this.codeCache = code
 
     const diagram = plantuml.generate(code, { format: 'svg' })
     this.refs.canvas.innerHTML = ''
-    let chunks = []
+    const chunks = []
     diagram.out.on('data', chunk => chunks.push(chunk))
     diagram.out.on('end', () => {
-      const data = Buffer.concat(chunks)
-      this.refs.canvas.innerHTML = data.toString()
+      this.refs.canvas.innerHTML = Buffer.concat(chunks).toString()
     })
   }
 
@@ -59,7 +54,7 @@ export default class Diagram extends React.Component {
   }
 
   saveAs (filters) {
-    const savePath = dialog.showSaveDialog({
+    const savePath = remote.dialog.showSaveDialog({
       title: 'UMLを保存',
       filters: filters
     })
